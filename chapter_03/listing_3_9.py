@@ -2,7 +2,7 @@ import asyncio
 from asyncio import AbstractEventLoop
 import signal
 from typing import Set
-from util import delay
+from concurrency.util.delay_functions import delay
 
 
 def cancel_tasks():

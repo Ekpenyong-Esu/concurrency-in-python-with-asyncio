@@ -1,6 +1,6 @@
 import asyncio
-from util import async_timed
-
+from concurrency.util.delay_functions import delay
+from concurrency.util.async_timer import async_timed
 
 @async_timed()
 async def cpu_bound_work() -> int:
@@ -14,8 +14,10 @@ async def cpu_bound_work() -> int:
 async def main():
     task_one = asyncio.create_task(cpu_bound_work())
     task_two = asyncio.create_task(cpu_bound_work())
+    delay_task = asyncio.create_task(delay(4))
     await task_one
     await task_two
+    await delay_task
 
 
 asyncio.run(main())

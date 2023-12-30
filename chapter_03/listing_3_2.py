@@ -14,7 +14,7 @@ try:
     buffer = b''
 
     while buffer[-2:] != b'\r\n':
-        data = connection.recv(2)
+        data = connection.recv(2)   # Receive 2 bytes at a time.
         if not data:
             break
         else:

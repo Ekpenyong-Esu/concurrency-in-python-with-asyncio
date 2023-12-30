@@ -1,8 +1,6 @@
 import asyncio
-from util import async_timed
 
 
-@async_timed()
 async def delay(delay_seconds: int) -> int:
     print(f'sleeping for {delay_seconds} second(s)')
     await asyncio.sleep(delay_seconds)
@@ -10,13 +8,11 @@ async def delay(delay_seconds: int) -> int:
     return delay_seconds
 
 
-@async_timed()
 async def main():
-    task_one = asyncio.create_task(delay(2))
-    task_two = asyncio.create_task(delay(3))
-
-    await task_one
-    await task_two
+    sleep_for_three = asyncio.create_task(delay(3))
+    print(type(sleep_for_three))
+    result = await sleep_for_three
+    print(result)
 
 
 asyncio.run(main())

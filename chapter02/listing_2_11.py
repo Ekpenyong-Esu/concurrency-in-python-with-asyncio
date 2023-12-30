@@ -1,6 +1,6 @@
 import asyncio
 from asyncio import CancelledError
-from util import delay
+from concurrency.util.delay_functions import delay
 
 
 async def main():
